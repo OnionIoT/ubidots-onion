@@ -8,12 +8,12 @@ BUILDDIR := build
 BINDIR := bin
 TARGET := $(BINDIR)/ubidots
  
-SRCEXT := cpp
+SRCEXT := c
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 CXXFLAGS := -g # -Wall
 #LIB := -pthread -lmongoclient -L lib -lboost_thread-mt -lboost_filesystem-mt -lboost_system-mt
-INC := $(shell find $(INCDIR) -maxdepth 1 -type d -exec echo -I {}  \;)
+# INC := $(shell find $(INCDIR) -maxdepth 1 -type d -exec echo -I {}  \;)
 
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(BINDIR)
